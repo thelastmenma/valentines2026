@@ -2,7 +2,11 @@ const noButton = document.getElementById('noButton');
 const yesButton = document.getElementById('yesButton');
 const heartsContainer = document.querySelector('.hearts');
 
-// Move "No" button when hovered
+const questionBox = document.getElementById('questionBox');
+const videoBox = document.getElementById('videoBox');
+const video = document.getElementById('valentineVideo');
+
+// Make NO button run away
 noButton.addEventListener('mouseenter', () => {
   const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
   const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
@@ -11,12 +15,14 @@ noButton.addEventListener('mouseenter', () => {
   noButton.style.top = `${y}px`;
 });
 
-// "Yes" button click
+// YES → show video
 yesButton.addEventListener('click', () => {
-  alert("Yay! 💖 I'm so happy you said yes!");
+  questionBox.style.display = 'none';
+  videoBox.style.display = 'flex';
+  video.play();
 });
 
-// Generate random floating hearts
+// Floating hearts
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
@@ -29,5 +35,5 @@ function createHeart() {
   }, 6000);
 }
 
-// Make hearts continuously
 setInterval(createHeart, 300);
+
