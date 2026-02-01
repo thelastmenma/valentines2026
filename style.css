@@ -1,40 +1,74 @@
-/* Body and layout */
+/* Base styles */
 body {
+  margin: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   overflow: hidden;
 }
 
-/* Card container */
+/* Container card */
 .container {
-  background: rgba(255, 255, 255, 0.85);
+  background: #fff0f2;
   padding: 40px;
   border-radius: 20px;
-  text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  z-index: 1;
+  text-align: center;
+  transition: opacity 0.8s ease;
+  z-index: 2;
+  max-width: 350px;
 }
 
 h1 {
-  font-size: 3rem;
   color: #ff2e63;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
 }
 
 p {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.valentine-photo {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: bounceFadeIn 1.2s ease-out;
+}
+
+@keyframes bounceFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
 button {
-  font-size: 2rem;
-  padding: 15px 30px;
-  margin: 10px;
+  font-size: 1.2rem;
+  padding: 10px 22px;
+  margin: 0 10px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -52,18 +86,44 @@ button {
 }
 
 button:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-/* Hearts floating */
+/* Video container (hidden initially, full screen) */
+.video-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease;
+  z-index: 10;
+}
+
+.video-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-container video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 0, 100, 0.7);
+}
+
+/* Hearts container */
 .hearts {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
+  z-index: 1;
 }
+
+/* Heart shape */
 .heart {
   position: absolute;
   width: 30px;
@@ -72,8 +132,9 @@ button:hover {
   transform: rotate(-45deg);
   animation: float 4s linear infinite;
 }
-.heart:before,
-.heart:after {
+
+.heart::before,
+.heart::after {
   content: "";
   position: absolute;
   width: 30px;
@@ -81,26 +142,33 @@ button:hover {
   background: red;
   border-radius: 50%;
 }
-.heart:before {
+
+.heart::before {
   top: -15px;
   left: 0;
 }
-.heart:after {
+
+.heart::after {
   left: 15px;
   top: 0;
 }
 
-/* Heart float animation */
+/* Hearts float up */
 @keyframes float {
   0% {
     transform: translateY(0) rotate(-45deg);
+    opacity: 0;
+  }
+  10% {
     opacity: 1;
   }
   100% {
-    transform: translateY(-800px) rotate(-45deg);
+    transform: translateY(-100vh) rotate(-45deg);
     opacity: 0;
   }
 }
+
+
 
 
 
