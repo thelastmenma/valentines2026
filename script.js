@@ -7,14 +7,18 @@ const videoBox = document.getElementById('videoBox');
 const video = document.getElementById('valentineVideo');
 const bgAudio = document.getElementById('bgAudio');
 
+const musicButton = document.getElementById('musicButton');
+const bgAudio = document.getElementById('bgAudio');
 
-// Play background audio once page is loaded
-window.addEventListener('load', () => {
+musicButton.addEventListener('click', () => {
   bgAudio.play().catch(() => {
-    // Autoplay with sound might be blocked until user interacts
-    // So you can handle errors silently or show a “Click to play sound” message
+    console.log('Audio blocked by browser.');
   });
+
+  // Hide the button once music starts
+  musicButton.style.display = 'none';
 });
+
 
 // NO button runs away on hover
 noButton.addEventListener('mouseenter', () => {
@@ -60,6 +64,7 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
 
 
 
