@@ -5,7 +5,7 @@ const heartsContainer = document.querySelector('.hearts');
 const questionBox = document.getElementById('questionBox');
 const videoBox = document.getElementById('videoBox');
 const video = document.getElementById('valentineVideo');
-const bgAudio = document.getElementById('bgAudio');
+
 
 const musicButton = document.getElementById('musicButton');
 const bgAudio = document.getElementById('bgAudio');
@@ -64,6 +64,7 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
 
 
 
