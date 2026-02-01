@@ -33,7 +33,7 @@ p {
 /* Buttons */
 button {
   font-size: 1.5rem;
-  padding: 10px 20px;
+  padding: 15px 30px;
   margin: 10px;
   border: none;
   border-radius: 10px;
@@ -101,4 +101,5 @@ button:hover {
     opacity: 0;
   }
 }
+
 
