@@ -6,7 +6,7 @@ const questionBox = document.getElementById('questionBox');
 const videoBox = document.getElementById('videoBox');
 const video = document.getElementById('valentineVideo');
 
-// Make NO button run away
+// NO button runs away on hover
 noButton.addEventListener('mouseenter', () => {
   const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
   const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
@@ -15,25 +15,38 @@ noButton.addEventListener('mouseenter', () => {
   noButton.style.top = `${y}px`;
 });
 
-// YES → show video
+// YES button fades out question, fades in video
 yesButton.addEventListener('click', () => {
-  questionBox.style.display = 'none';
-  videoBox.style.display = 'flex';
+  questionBox.style.opacity = '0';
+  questionBox.style.pointerEvents = 'none';
+
+  videoBox.classList.add('show');
   video.play();
 });
 
-// Floating hearts
+// Floating hearts spawning on left or right edges
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
-  heart.style.left = Math.random() * window.innerWidth + 'px';
+
+  const side = Math.random() < 0.5 ? 'left' : 'right';
+  const offset = Math.random() * 60; // px from edge
+
+  if (side === 'left') {
+    heart.style.left = `${offset}px`;
+  } else {
+    heart.style.left = `${window.innerWidth - offset - 30}px`;
+  }
+
+  heart.style.bottom = '-40px';
   heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+
   heartsContainer.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  setTimeout(() => heart.remove(), 6000);
 }
 
 setInterval(createHeart, 300);
+
+
 
