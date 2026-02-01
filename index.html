@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Be My Valentine 💖</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Question Card -->
   <div class="container" id="questionBox">
-    <h1>  Hello Loml, Koskaya Farfan </h1>
+    <h1>Hello Loml, Koskaya Farfan</h1>
     <p>Will you be my Valentine</p>
-
-    <!-- GIF / Image -->
-    <img src="cat-and-flower.gif" alt="💖" class="valentine-photo">
-
+    <img src="cat-and-flower.gif" alt="Cute Valentine" class="valentine-photo" />
     <div class="buttons">
-      <button id="yesButton">Yes, my amazing king ! 💘</button>
-      <button id="noButton">EW HELL NO😢</button>
+      <button id="yesButton">Yes, my amazing king ! 💖</button>
+      <button id="noButton">EW HELL NO 😢</button>
     </div>
   </div>
 
-  <!-- Video (hidden at first) -->
   <div class="video-container" id="videoBox">
-    <video id="valentineVideo" controls autoplay>
-      <source src="valentine.mp4" type="video/mp4">
+    <video
+      id="valentineVideo"
+      controls
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source src="valentine.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
 
-  <!-- Floating hearts -->
   <div class="hearts"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 
