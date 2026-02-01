@@ -5,6 +5,16 @@ const heartsContainer = document.querySelector('.hearts');
 const questionBox = document.getElementById('questionBox');
 const videoBox = document.getElementById('videoBox');
 const video = document.getElementById('valentineVideo');
+const bgAudio = document.getElementById('bgAudio');
+const bgAudio = document.getElementById('bgAudio');
+
+// Play background audio once page is loaded
+window.addEventListener('load', () => {
+  bgAudio.play().catch(() => {
+    // Autoplay with sound might be blocked until user interacts
+    // So you can handle errors silently or show a “Click to play sound” message
+  });
+});
 
 // NO button runs away on hover
 noButton.addEventListener('mouseenter', () => {
@@ -19,7 +29,10 @@ noButton.addEventListener('mouseenter', () => {
 yesButton.addEventListener('click', () => {
   questionBox.style.opacity = '0';
   questionBox.style.pointerEvents = 'none';
-
+  
+  //stops background music
+bgAudio.pause();
+  
   videoBox.classList.add('show');
   video.play();
 });
@@ -47,6 +60,7 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
 
 
 
