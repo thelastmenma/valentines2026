@@ -6,7 +6,7 @@ const questionBox = document.getElementById('questionBox');
 const videoBox = document.getElementById('videoBox');
 const video = document.getElementById('valentineVideo');
 const bgAudio = document.getElementById('bgAudio');
-const bgAudio = document.getElementById('bgAudio');
+
 
 // Play background audio once page is loaded
 window.addEventListener('load', () => {
@@ -60,6 +60,7 @@ function createHeart() {
 }
 
 setInterval(createHeart, 300);
+
 
 
 
